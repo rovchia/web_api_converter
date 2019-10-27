@@ -1,6 +1,6 @@
 # script_vari
 Language used: Python 3.7
-Framework: Flasks
+Framework: Flask
 
 List of files:
 - converter.py contains the WEB api
