@@ -19,4 +19,4 @@ Steps to test the web API via command prompt:
  
 Notes: 
 - The XML containing the exchange rates is stored dynamically at the startup of the web service
-(internet connection is necessary to retreive the file at startup)
+(internet connection is necessary to retreive the file)
