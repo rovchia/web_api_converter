@@ -50,21 +50,25 @@ def convert():
 	else:
 		return "Error: No field dest_currency."
 	if 'reference_date' in request.args:
-		in_date = request.args['reference_date']
-		end_date = date.today().toordinal()
-		start_date = date.today().toordinal() - 90
-		this_date = datetime.datetime.strptime(in_date, '%Y-%m-%d').toordinal()
+		try:
+			in_date = request.args['reference_date']
+			end_date = date.today().toordinal()
+			start_date = date.today().toordinal() - 90
+			this_date = datetime.datetime.strptime(in_date, '%Y-%m-%d').toordinal()
+			
+			if this_date < start_date or this_date > end_date:
+				code = 801
+				msg = 'date out of range (90 days ago, today)'
+				return msg, code
+			temp_date = date.fromordinal(this_date)
+			weekday = temp_date.weekday()
+			if weekday == 5 or weekday == 6:
+				code = 804
+				msg = 'saturdays and sundays not accepted'
+				return msg, code
+		except Exception as e:
+			return "Error: date bad format"
 		
-		if this_date < start_date or this_date > end_date:
-			code = 801
-			msg = 'date out of range (90 days ago, today)'
-			return msg, code
-		temp_date = date.fromordinal(this_date)
-		weekday = temp_date.weekday()
-		if weekday == 5 or weekday == 6:
-			code = 804
-			msg = 'saturdays and sundays not accepted'
-			return msg, code
 	else:
 		return "Error: No field reference_date."
 
