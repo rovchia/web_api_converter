@@ -10,9 +10,6 @@ import datetime
 
 app = Flask(__name__)
 
-# my params RESPONSE
-# dest = 'USD'
-# tot = 10
 # PARAMS = {"amount": str(tot), "currency" : dest }
 try:
 	url = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml'
@@ -57,7 +54,7 @@ def convert():
 		end_date = date.today().toordinal()
 		start_date = date.today().toordinal() - 90
 		this_date = datetime.datetime.strptime(in_date, '%Y-%m-%d').toordinal()
-		# this_date = date.datetime(in_date).toordinal
+		
 		if this_date < start_date or this_date > end_date:
 			code = 801
 			msg = 'date out of range (90 days ago, today)'
