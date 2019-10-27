@@ -12,7 +12,6 @@ def main():
 	URL = "http://localhost:5000/converter"
 	  
 	all_curr = ['USD', 'JPY', 'BGN', 'CZK', 'DKK', 'GBP', 'HUF', 'PLN', 'RON', 'SEK', 'CHF', 'ISK', 'NOK', 'HRK', 'RUB', 'TRY', 'AUD', 'BRL', 'CAD', 'CNY', 'HKD', 'IDR', 'ILS', 'INR', 'KRW', 'MXN', 'MYR', 'NZD', 'PHP', 'SGD', 'THB', 'ZAR']
-	# my params REQUEST
 	
 	curr_1 = randrange(len(all_curr))
 	while 1:
