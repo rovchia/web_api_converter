@@ -12,7 +12,7 @@ def convert_fun(date_to_search, curr_to_search, doc):
 
 		
 		for curr in cube_bydate.childNodes:
-			#print(str(curr))
+		
 			date = cube_bydate.attributes['time'].value
 			curr_str = curr.attributes['currency'].value
 			if date == date_to_search and curr_str == curr_to_search:
